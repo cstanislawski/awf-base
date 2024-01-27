@@ -16,8 +16,9 @@ echo "Will use argo-workflows version: $LATEST_APP_TAG"
 
 k3d cluster create argo
 
-# auth mode server so we can use the UI without having to log in
-helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" > /dev/null
+# source:
+# https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows
+helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" > /dev/null # auth mode server so we can use the UI without having to log in
 
 kubectl apply -f workflows/rbac.yaml > /dev/null
 
