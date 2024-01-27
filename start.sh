@@ -16,16 +16,13 @@ echo "Will use argo-workflows version: $LATEST_APP_TAG"
 
 k3d cluster create argo
 
-export LATEST_HELM_TAG=$LATEST_HELM_TAG
+# auth mode server so we can use the UI without having to log in
+helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" > /dev/null
 
-# helm install argo-workflows argo/argo-workflows --namespace argo --create-namespace --version "$LATEST_HELM_TAG" --values values.yaml
-
-helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --values values.yaml
-
-kubectl apply -f workflows/rbac.yaml
+kubectl apply -f workflows/rbac.yaml > /dev/null
 
 argo submit --watch workflows/examples/hello-world.yaml
 
-echo "You're all set! Check out the Argo UI at http://localhost:2746"
-
-echo "kubectl port-forward svc/argo-server -n argo 2746:2746"
+echo "You're all set! Check out the Argo UI at http://localhost:2746/workflows with:"
+echo "kubectl port-forward svc/argo-workflows-server 2746:2746"
+echo "Good luck!"
