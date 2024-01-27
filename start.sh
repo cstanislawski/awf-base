@@ -24,6 +24,8 @@ kubectl apply -f workflows/rbac.yaml > /dev/null
 
 argo submit --watch workflows/examples/hello-world.yaml
 
+echo ""
 echo "You're all set! Check out the Argo UI at http://localhost:2746/workflows with:"
+echo ""
 echo "kubectl port-forward svc/argo-workflows-server 2746:2746"
-echo "Good luck!"
+echo ""
