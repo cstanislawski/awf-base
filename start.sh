@@ -37,12 +37,12 @@ while [[ $(kubectl get deployment -n argo argo-server -o jsonpath="{.status.read
   counter=$((counter + 1))
   if [[ $counter -gt $DEPLOYMENT_TIMEOUT ]]; then
     echo ""
-    echo "##############################"
-    echo "Didn't start in time. Exiting."
-    echo "##############################"
-    echo ""
-    bash local_stop.sh
-    break
+    echo "Didn't start in time."
+    echo "Check manually:"
+    echo "kubectl get deployment -n argo argo-server"
+    echo "And set up port forwarding:"
+    echo "kubectl -n argo port-forward deployment/argo-server 2746:2746"
+    exit 1
   fi
 done
 
