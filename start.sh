@@ -21,3 +21,11 @@ export LATEST_HELM_TAG=$LATEST_HELM_TAG
 # helm install argo-workflows argo/argo-workflows --namespace argo --create-namespace --version "$LATEST_HELM_TAG" --values values.yaml
 
 helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --values values.yaml
+
+kubectl apply -f workflows/rbac.yaml
+
+argo submit --watch workflows/examples/hello-world.yaml
+
+echo "You're all set! Check out the Argo UI at http://localhost:2746"
+
+echo "kubectl port-forward svc/argo-server -n argo 2746:2746"
