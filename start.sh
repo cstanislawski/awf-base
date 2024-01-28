@@ -18,9 +18,14 @@ k3d cluster create argo
 
 # source:
 # https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows
-helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" > /dev/null # auth mode server so we can use the UI without having to log in
 
-# helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --values awf-values.yml
+# server.extraArgs={--auth-mode=server} - we can use the UI without having to log in
+# controller.metricsConfig.enabled=true - enable prometheus metrics server
+# controller.telemetryConfig.enabled=true - enable prometheus telemetry server
+
+helm upgrade --install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" --set "controller.telemetryConfig.enabled=true" --set "controller.metricsConfig.enabled=true" > /dev/null
+
+# helm upgrade --install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --values awf-values.yml
 
 kubectl apply -f workflows/rbac.yaml > /dev/null
 
