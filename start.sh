@@ -20,6 +20,8 @@ k3d cluster create argo
 # https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows
 helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --set "server.extraArgs={--auth-mode=server}" > /dev/null # auth mode server so we can use the UI without having to log in
 
+# helm install argo-workflows argo/argo-workflows --version "$LATEST_HELM_TAG" --values awf-values.yaml
+
 kubectl apply -f workflows/rbac.yaml > /dev/null
 
 argo submit --watch workflows/examples/hello-world.yaml
