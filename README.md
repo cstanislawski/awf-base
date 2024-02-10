@@ -11,3 +11,11 @@ To test whether the service account has the necessary permissions, you can submi
 ```bash
 argo submit --watch workflows/examples/hello-world.yaml
 ```
+
+## Requirements for local setup
+
+- [docker](https://docs.docker.com/get-docker/)
+- [k3d](https://k3d.io/#installation)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [helm](https://helm.sh/docs/intro/install/)
+- [argo cli](https://argo-workflows.readthedocs.io/en/latest/walk-through/argo-cli/)
