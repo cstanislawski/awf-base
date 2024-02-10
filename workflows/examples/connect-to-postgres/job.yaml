@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pg-connect
+  namespace: default
+  labels:
+    app: pg-connect
+spec:
+  template:
+    metadata:
+      name: pg-connect
+    spec:
+      containers:
+      - name: pg-connect
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            echo "Getting the postgresql-client package..."
+            apk add --no-cache postgresql-client
+            echo "Connecting to the PostgreSQL database..."
+            psql -h postgresql.default.svc.cluster.local -p 5432 -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT 'Hello, world!';"
+            echo "Success!"
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: POSTGRES_USER
+        - name: PGPASSWORD # This is the environment variable that the psql command will look for to authenticate with the PostgreSQL database.
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: POSTGRES_DB
+      restartPolicy: Never
