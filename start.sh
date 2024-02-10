@@ -36,3 +36,5 @@ echo "You're all set! Check out the Argo UI at http://localhost:2746/workflows w
 echo ""
 echo "kubectl port-forward svc/argo-workflows-server 2746:2746"
 echo ""
+
+jq ".argo.\"argo-workflows\" = \"$LATEST_HELM_TAG\"" working_versions.json > working_versions.json.tmp && mv working_versions.json.tmp working_versions.json
