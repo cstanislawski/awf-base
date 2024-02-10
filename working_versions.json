@@ -1,0 +1,5 @@
+{
+  "argo": {
+    "argo-workflows": "0.40.10"
+  }
+}

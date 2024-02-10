@@ -19,3 +19,7 @@ argo submit --watch workflows/examples/hello-world.yaml
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [helm](https://helm.sh/docs/intro/install/)
 - [argo cli](https://argo-workflows.readthedocs.io/en/latest/walk-through/argo-cli/)
+
+## Compatibility
+
+[working_versions.json](./working_versions.json) contain the versions of helm charts used and confirmed to be correctly with what's defined in the repository.
