@@ -29,7 +29,7 @@ helm upgrade --install argo-workflows argo/argo-workflows --version "$LATEST_HEL
 
 kubectl apply -f workflows/rbac.yaml > /dev/null
 
-argo submit --watch workflows/examples/hello-world.yaml
+argo submit --watch workflows/examples/hello-world/workflow.yaml
 
 echo ""
 echo "You're all set! Check out the Argo UI at http://localhost:2746/workflows with:"
