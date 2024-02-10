@@ -19,3 +19,4 @@ argo submit --watch workflows/examples/hello-world.yaml
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [helm](https://helm.sh/docs/intro/install/)
 - [argo cli](https://argo-workflows.readthedocs.io/en/latest/walk-through/argo-cli/)
+- [openssl](https://www.openssl.org/) - for generating passwords with `openssl rand`
