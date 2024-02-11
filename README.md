@@ -24,3 +24,18 @@ argo submit --watch workflows/examples/hello-world.yaml
 ## Compatibility
 
 [working_versions.json](./working_versions.json) contain the versions of helm charts used and confirmed to be correctly with what's defined in the repository.
+
+## TODO
+
+### Workflows
+
+1. Heavy concurrent database operations on different unique tables.
+2. 1000 concurrent lightweight operations.
+3. 1000 concurrent heavy operations.
+4. Sourcing workflows / workflow templates from a git repository.
+5. Multiple workflows depending on each other (A -> B -> C,  A -> D -> C etc).
+
+### Monitoring
+
+1. Prometheus auto-discovery.
+2. Grafana dashboards for core (awf controller, server) & workflows.
