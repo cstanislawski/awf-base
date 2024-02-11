@@ -39,3 +39,7 @@ argo submit --watch workflows/examples/hello-world.yaml
 
 1. Prometheus auto-discovery.
 2. Grafana dashboards for core (awf controller, server) & workflows.
+
+### Networking
+
+1. Ingress setup for local development.
