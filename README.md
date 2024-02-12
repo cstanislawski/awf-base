@@ -34,6 +34,8 @@ argo submit --watch workflows/examples/hello-world.yaml
 3. 1000 concurrent heavy operations.
 4. Sourcing workflows / workflow templates from a git repository.
 5. Multiple workflows depending on each other (A -> B -> C,  A -> D -> C etc).
+6. Worklows integration with Vault with some tasks
+7. Large scale integration with Vault
 
 ### Monitoring
 
