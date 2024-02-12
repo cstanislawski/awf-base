@@ -25,6 +25,22 @@ argo submit --watch workflows/examples/hello-world.yaml
 
 [working_versions.json](./working_versions.json) contain the versions of helm charts used and confirmed to be correctly with what's defined in the repository.
 
+## Examples
+
+You can find various examples in [./workflows/examples](./workflows/examples/).
+
+To run them, simply run the main [startup script](./start.sh):
+
+```bash
+bash start.sh
+```
+
+and then all the examples should be runnable from the root directory, e.g.:
+
+```bash
+bash workflows/examples/connect-to-postgres/start.sh
+```
+
 ## TODO
 
 ### Workflows
