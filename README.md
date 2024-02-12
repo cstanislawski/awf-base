@@ -61,3 +61,7 @@ bash workflows/examples/connect-to-postgres/start.sh
 ### Networking
 
 1. Ingress setup for local development.
+
+### Other services
+
+1. Argo Events
