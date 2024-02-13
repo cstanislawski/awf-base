@@ -21,6 +21,7 @@ spec:
           apk add --no-cache postgresql-client
           echo "Connecting to the PostgreSQL database..."
           psql -h postgresql.default.svc.cluster.local -p 5432 -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT 'Hello, world!';"
+          psql postgresql://$POSTGRES_USER:$PGPASSWORD@postgresql.default.svc.cluster.local:5432/$POSTGRES_DB -c "SELECT 'Hello, world!';"
           echo "Success!"
           exit 0
       env:
