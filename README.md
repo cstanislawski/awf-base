@@ -45,9 +45,9 @@ bash workflows/examples/connect-to-postgres/start.sh
 
 ### Workflows
 
-1. Heavy concurrent database operations on different unique tables.
-2. 1000 concurrent lightweight operations.
-3. 1000 concurrent heavy operations.
+1. Heavy concurrent database operations on different unique tables
+2. 1000 concurrent lightweight operations
+3. 1000 concurrent heavy operations
 4. Sourcing workflows / workflow templates from a git repository.
 5. Multiple workflows depending on each other (A -> B -> C,  A -> D -> C etc).
 6. Worklows integration with Vault with some tasks
@@ -55,12 +55,12 @@ bash workflows/examples/connect-to-postgres/start.sh
 
 ### Monitoring
 
-1. Prometheus auto-discovery.
-2. Grafana dashboards for core (awf controller, server) & workflows.
+1. Prometheus auto-discovery
+2. Grafana dashboards for core (awf controller, server) & workflows
 
 ### Networking
 
-1. Ingress setup for local development.
+1. Ingress setup for local development
 
 ### Other services
 
