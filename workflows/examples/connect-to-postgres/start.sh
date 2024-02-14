@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Creating postgres-credentials secret"
 kubectl create secret generic postgres-credentials --from-literal=POSTGRES_USER="$(openssl rand -base64 12)" --from-literal=POSTGRES_PASSWORD="$(openssl rand -base64 12)" --from-literal=POSTGRES_DB=argo
 

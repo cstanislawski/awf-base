@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # check if `helm repo list` contains argo, if not, add it
 if ! helm repo list | grep -q argo; then
   helm repo add argo https://argoproj.github.io/argo-helm
