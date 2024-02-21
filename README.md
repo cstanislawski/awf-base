@@ -52,6 +52,8 @@ bash workflows/examples/connect-to-postgres/start.sh
 5. Multiple workflows depending on each other (A -> B -> C,  A -> D -> C etc).
 6. Worklows integration with Vault with some tasks
 7. Large scale integration with Vault
+8. Seeding of one job from  one git repository
+9. Seeding of multiple jobs from one git repository
 
 ### Monitoring
 
