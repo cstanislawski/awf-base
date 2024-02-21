@@ -16,12 +16,35 @@ spec:
       image: alpine:latest
       command: ["/bin/sh", "-c"]
       args:
-        - |
+        - |-
+
           echo "Getting the postgresql-client package..."
           apk add --no-cache postgresql-client
           echo "Connecting to the PostgreSQL database..."
-          psql -h postgresql.default.svc.cluster.local -p 5432 -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT 'Hello, world!';"
+
+          echo "Doing a simple query..."
           psql postgresql://$POSTGRES_USER:$PGPASSWORD@postgresql.default.svc.cluster.local:5432/$POSTGRES_DB -c "SELECT 'Hello, world!';"
+
+          # create a table dummy_table and insert a row
+          echo "Creating a table..."
+          psql -h postgresql.default.svc.cluster.local -p "5432" -U $POSTGRES_USER -d $POSTGRES_DB -c "CREATE TABLE IF NOT EXISTS dummy_table (id serial PRIMARY KEY, name VARCHAR(50));"
+
+          # insert a row into the table
+          echo "Inserting a row into the table..."
+          psql -h postgresql.default.svc.cluster.local -p "5432" -U $POSTGRES_USER -d $POSTGRES_DB -c "INSERT INTO dummy_table (name) VALUES ('Hello, world!');"
+
+          # # select all rows from the table
+          echo "Selecting all rows from the table..."
+          psql -h postgresql.default.svc.cluster.local -p "5432" -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT * FROM dummy_table;"
+
+          # # alter the row
+          echo "Altering the row..."
+          psql -h postgresql.default.svc.cluster.local -p "5432" -U $POSTGRES_USER -d $POSTGRES_DB -c "UPDATE dummy_table SET name = 'Hello, world! Updated!' WHERE id = 1;"
+
+          # # select all rows from the table
+          echo "Selecting all rows from the table..."
+          psql -h postgresql.default.svc.cluster.local -p "5432" -U $POSTGRES_USER -d $POSTGRES_DB -c "SELECT * FROM dummy_table;"
+
           echo "Success!"
           exit 0
       env:
