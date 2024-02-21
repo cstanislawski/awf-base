@@ -49,7 +49,7 @@ bash workflows/examples/connect-to-postgres/start.sh
 2. 1000 concurrent lightweight operations
 3. 1000 concurrent heavy operations
 4. Sourcing workflows / workflow templates from a git repository.
-5. Multiple workflows depending on each other (A -> B -> C,  A -> D -> C etc).
+5. Multiple workflows depending on each other (A -> B -> D,  A -> C -> D etc).
 6. Worklows integration with Vault with some tasks
 7. Large scale integration with Vault
 8. Seeding of one job from  one git repository
