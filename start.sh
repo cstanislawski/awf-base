@@ -26,7 +26,7 @@ k3d cluster create argo
 
 ## monitoring
 
-# helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace > /dev/null
+helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace > /dev/null
 
 ## argo
 
