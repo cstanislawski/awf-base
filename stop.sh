@@ -1,3 +1,3 @@
 #!/bin/bash
 
-k3d cluster delete argo
+k3d cluster delete awf

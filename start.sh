@@ -19,7 +19,7 @@ AWF_LATEST_APP_TAG=$(helm search repo argo/argo-workflows | grep argo/argo-workf
 echo "Will use helm chart version: $AWF_LATEST_HELM_TAG"
 echo "Will use argo-workflows version: $AWF_LATEST_APP_TAG"
 
-k3d cluster create argo
+k3d cluster create awf
 
 # source:
 # https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows
